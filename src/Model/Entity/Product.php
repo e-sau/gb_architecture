@@ -23,13 +23,25 @@ class Product
 
     /**
      * @param int $id
-     * @param string $name
-     * @param float $price
      */
-    public function __construct(int $id, string $name, float $price)
+    public function setId(int $id): void
     {
         $this->id = $id;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
         $this->name = $name;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice(float $price): void
+    {
         $this->price = $price;
     }
 
@@ -67,5 +79,10 @@ class Product
             'name' => $this->name,
             'price' => $this->price,
         ];
+    }
+
+    public function __clone()
+    {
+
     }
 }
