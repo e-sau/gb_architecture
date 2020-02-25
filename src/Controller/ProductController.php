@@ -47,8 +47,13 @@ class ProductController extends BaseController
      */
     public function listAction(Request $request): Response
     {
+        $key = $request->query->get('sort');
+
+        $sorterClassName  = "Service\\Strategy\\";
+        $sorterClassName .= $key ? ucfirst($key) . "Sorter" : "NullSorter";
+
         $productList = (new ProductService())->getAll(
-            $request->query->get('sort', '')
+            new $sorterClassName
         );
 
         return $this->render(

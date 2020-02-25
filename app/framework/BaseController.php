@@ -18,6 +18,7 @@ abstract class BaseController
      * @param array $parameters
      * @return Response
      */
+// ---------------------- Шаблонный метод ----------------------
     protected function render(string $view, array $parameters = []): Response
     {
         $rootViewPath = Registry::getDataConfig('view.directory');
@@ -54,6 +55,7 @@ abstract class BaseController
 
         return new Response(ob_get_clean());
     }
+// --------------------- /Шаблонный метод ----------------------
 
     /**
      * Перенаправление на другую страницу

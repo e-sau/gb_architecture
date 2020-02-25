@@ -7,6 +7,7 @@ namespace Service\Product;
 use Model;
 use Model\Entity\Product;
 use Model\Repository\ProductRepository;
+use Service\Strategy\SorterInterface;
 
 class ProductService
 {
@@ -23,16 +24,17 @@ class ProductService
 
     /**
      * Получаем все продукты
-     * @param string $sortType
+     * @param SorterInterface $sorter
      * @return Product[]
      */
-    public function getAll(string $sortType): array
+    public function getAll(SorterInterface $sorter): array
     {
         $productList = $this->getProductRepository()->fetchAll();
 
         // Применить паттерн Стратегия
         // $sortType === 'price'; // Сортировка по цене
         // $sortType === 'name'; // Сортировка по имени
+        usort($productList, [$sorter, "sort"]);
 
         return $productList;
     }
