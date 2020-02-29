@@ -16,6 +16,11 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 
+// Front Controller приложения
+// Класс взаимодействует с классом ContainerBuilder посредством агрегации
+// С помощью DI класс взаимодействует с классом Request
+// Через композицию класс взаимодействует с классами: FileLocator, PhpFileLoader,
+// UrlMatcher, Session, ControllerResolver, ArgumentResolver, Response
 class Kernel
 {
     /**
