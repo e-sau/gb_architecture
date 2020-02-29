@@ -1,4 +1,6 @@
 <?php
+// В проекте используется Anemic Domain Model
+// Логика обработки моделей вынесена в отдельный классы Repository
 
 use Framework\Registry;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

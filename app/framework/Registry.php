@@ -11,6 +11,9 @@ use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 
+// Паттерн Registry
+// Напрямую не хранит данные, но используется для получения конфигурационных параметров (parameters.php),
+// и получения роутов из файла routing.php и генерации на основании роутов url-строки
 class Registry
 {
     /**
